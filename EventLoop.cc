@@ -50,7 +50,7 @@ EventLoop::~EventLoop() {
     t_loopInThisThread = nullptr;
 }
 
-void EventLoop::Loop() {
+void EventLoop::loop() {
     looping_ = true;
     quit_ = false;
 

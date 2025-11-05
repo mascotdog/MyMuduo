@@ -21,7 +21,7 @@ public:
     ~EventLoop();
 
     // 开启事件循环
-    void Loop();
+    void loop();
     // 退出事件循环
     void quit();
 
