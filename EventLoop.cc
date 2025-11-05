@@ -54,9 +54,9 @@ void EventLoop::Loop() {
     looping_ = true;
     quit_ = false;
 
-    LOG_INFO("EventLoop % p start looping \n", this);
+    LOG_INFO("EventLoop %p start looping \n", this);
 
-    while (!quit) {
+    while (!quit_) {
         activeChannels_.clear();
         // 监听两类fd 一种是client的fd 一种是wakeupfd
         pollReturnTime_ = poller_->poll(kPollTimeMs, &activeChannels_);
