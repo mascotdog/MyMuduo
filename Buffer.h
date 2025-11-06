@@ -21,7 +21,7 @@ public:
 
     size_t prependableBytes() const { return readIndex_; }
 
-    // 返回缓冲区中刻度数据的起始地址
+    // 返回缓冲区中可读数据的起始地址
     const char *peek() const { return begin() + readIndex_; }
 
     // onMessage string <- Buffer
@@ -67,6 +67,8 @@ public:
     // 从fd上读取数据
     ssize_t readFd(int fd, int* saveErrno);
 
+    // 通过fd发送数据
+    ssize_t writeFd(int fd,int* saveErrno);
 private:
     char *begin() {
         // it.operator*().operator&()
