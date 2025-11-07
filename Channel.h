@@ -40,12 +40,12 @@ public:
 
     int fd()const {return fd_;}
     int events()const {return events_;}
-    int set_revents(int revt){revents_ = revt;}
+    void set_revents(int revt){revents_ = revt;}
 
     // 设置fd相应的事件状态
-    void enableReading() {events_ != kReadEvent; update();}
+    void enableReading() { events_ |= kReadEvent; update(); }
     void disableReading() {events_ &= ~kReadEvent; update();}
-    void enableWriting() {events_ != kWriteEvent; update();}
+    void enableWriting() { events_ |= kWriteEvent; update(); }
     void disableWriting() {events_ &= ~kWriteEvent; update();}
     void disableAll() { events_ = kNoneEvent; update();}
 

@@ -19,7 +19,7 @@ TcpServer::TcpServer(EventLoop *loop, const InetAddress &listenAddr,
       name_(nameArg),
       acceptor_(new Acceptor(loop, listenAddr, option == kReusePort)),
       threadPool_(new EventLoopThreadPool(loop, name_)), connectionCallback_(),
-      messageCallback_(), nextConnId_() {
+      messageCallback_(), nextConnId_(),started_(0) {
     // 当有新用户连接时，会执行TcpServer::newConnection
     acceptor_->setNewConnectionCallback(std::bind(&TcpServer::newConnection,
                                                   this, std::placeholders::_1,

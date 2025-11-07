@@ -74,7 +74,7 @@ void TcpConnection::handleWrite() {
                     loop_->queueInLoop(
                         std::bind(writeCompleteCallback_, shared_from_this()));
                 }
-                if (state_ == kDisConnected) {
+                if (state_ == kDisConnecting) {
                     shutdownInLoop();
                 }
             }
